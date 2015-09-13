@@ -2,3 +2,15 @@
 body {
   background: green;
 }
+
+#highpriority {
+	color: red;
+}
+
+#medpriority {
+	color: orange;
+}
+
+#lowpriority {
+	color: black;
+}
