@@ -31,10 +31,21 @@
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
           <span>{{do}}</span>
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
-            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-          </button>
-
+          <!-- This division is a text box that shows up only when the edit button has been pressed and disappears when 'ok' is hit. This is where the js function is called from.-->
+          <div ng-show="activity.isEdited">
+            <input type="text" ng-model="uInput" placeholder= "edit"/>
+            <button ng-click="activity.isEdited = false ; editItem(do, uInput)">Ok</button>
+          </div>
+           
+          <div ng-hide="activity.isEdited"> 
+            <button class="btn btn-danger pull-right" ng-click="deleteItem(do)" type="button">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn-danger pull-right" ng-click="activity.isEdited = true" type="button">
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </button>
+            
+          </div>
         </li>
       </ul>
     </div>
