@@ -1,4 +1,19 @@
-/* Styles go here */
-body {
-  background: green;
-}
+/* Styles go here */ 
+body { 
+  background: green; 
+} 
+
+ 
+#highpriority { 
+	color: red; 
+} 
+
+ 
+#medpriority { 
+	color: orange; 
+} 
+ 
+ 
+#lowpriority { 
+	color: black; 
+} 
