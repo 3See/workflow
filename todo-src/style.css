@@ -3,17 +3,14 @@ body {
   background: green; 
 } 
 
- 
-#highpriority { 
-	color: red; 
-} 
+.high {
+	color: red;
+}
 
- 
-#medpriority { 
-	color: orange; 
-} 
- 
- 
-#lowpriority { 
-	color: black; 
-} 
+.med {
+	color: orange;
+}
+
+.low {
+	color: black;
+}
