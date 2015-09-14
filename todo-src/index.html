@@ -15,18 +15,16 @@
     <h1 class="text-center">My little to do app!</h1> 
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl"> 
       <div class="input-group"> 
-        <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem"> 
-        <span class="input-group-btn"> 
-          <div class="btn-group">   
-            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expand="false">   
-              Priority <span class="caret"></span>                  
-            </button>   
-            <ul class="dropdown-menu">   
-              <li><a href="#" ng-click="highaddItem()">High</a></li>   
-              <li><a href="#" ng-click="medaddItem()">Medium</a></li>   
-              <li><a href="#" ng-click="lowaddItem()">Low</a></li>   
-            </ul>   
-          </div>   
+        <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+        <select name="Priority" placeholder="Priority" ng-model="priority">
+          <option value="high">High</option>
+          <option value="med">Medium</option>
+          <option value="low">Low</option>
+        </select> 
+        <span class="input-group-btn">   
+          <button type="button" class="btn btn-info" ng-click="addItem()">   
+            Submit<span></span>                  
+          </button>     
         </span> 
       </div>      
       <h2>stuff i gotta do asap</h2>     

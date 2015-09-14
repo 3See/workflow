@@ -10,10 +10,12 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.low = []; 
   $scope.newItem = ""; 
     
-  $scope.highaddItem = function(){ 
-    console.log("high add"); 
-    if ($scope.newItem !== ""){ 
-      $scope.high.push($scope.newItem); 
+  $scope.addItem = function(){ 
+    console.log("add"); 
+    if ($scope.newItem !== ""){
+      if ($scope.priority == "high") {$scope.high.push($scope.newItem);}
+      if ($scope.priority == "med") {$scope.medium.push($scope.newItem);}
+      if ($scope.priority == "low") {$scope.low.push($scope.newItem);}
       $scope.newItem = ""; 
     } 
   } 
@@ -33,15 +35,6 @@ myApp.controller('MainCtrl', function ($scope){
   } 
  
  
-  $scope.medaddItem = function(){ 
-    console.log("med add"); 
-    if ($scope.newItem !== ""){ 
-      $scope.medium.push($scope.newItem); 
-      $scope.newItem = ""; 
-    } 
-  } 
- 
- 
   $scope.medcheckItem = function(item){ 
     console.log("medium check"); 
     var index = $scope.medium.indexOf(item); 
@@ -53,15 +46,6 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("med delete"); 
     var index = $scope.medium.indexOf(item); 
     $scope.medium.splice(index, 1); 
-  } 
- 
- 
-  $scope.lowaddItem = function(){ 
-    console.log("low add"); 
-    if ($scope.newItem !== ""){ 
-      $scope.low.push($scope.newItem); 
-      $scope.newItem = ""; 
-    } 
   } 
  
  
