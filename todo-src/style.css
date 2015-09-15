@@ -2,3 +2,15 @@
 body {
   background: green;
 }
+
+.inline {
+  display:inline;
+}
+
+.test1{
+  line-height: 30px;
+}
+
+.bold {
+  font-weight: bold;
+}
