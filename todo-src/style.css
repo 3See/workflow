@@ -2,14 +2,15 @@
 body { 
   background: green; 
 } 
-
-.high {
+/*Priority coloring*/
+.High {
 	color: red;
 }
 
-.med {
+.Med {
 	color: orange;
 }
-
+/*must be lower case to enforce sorting order of High, Medium, low....i.e. capital M comes before lower case l but after uppercase L*/
 .low {
 	color: black;
+}
