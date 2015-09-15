@@ -4,14 +4,12 @@ body {
   background: green; 
 } 
 
-.high {
-	color: red;
-}
+ 
+#highpriority { 
+	color: red; 
+} 
 
-.med {
-	color: orange;
-}
-
+<<<<<<< HEAD
 .low {
 	color: black;
 =======
@@ -20,3 +18,14 @@ body {
   background: green;
 >>>>>>> 7fc5c28ad48f11fd5d8dac53c6310f44586b5fba
 }
+=======
+ 
+#medpriority { 
+	color: orange; 
+} 
+ 
+ 
+#lowpriority { 
+	color: black; 
+} 
+>>>>>>> parent of 74f0a49... work in progress
