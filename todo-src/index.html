@@ -38,7 +38,22 @@
         </li>
       </ul>
 
-      <h3>Items Left To Do: <label class="pull-right"><span class="badge badge-important">{{todos.length}}</span></label></h3>
+        <div class="panel clearfix">
+            <div class="panel-body">
+                <h3 class="inline">
+                    Tasks Remaining:
+                    <span class="label" ng-class="{'label-success':todos.length === 0, 'label-danger': todos.length > 0}">{{todos.length}}</span>
+                </h3>
+                <div class="pull-right test1">
+                    <span class="text-danger bold" ng-show="todos.length">Unfinished Tasks Remaining</span>
+                    <span class="text-success bold" ng-hide="todos.length">No Tasks Remaining</span>
+                    <span class="badge">
+                        <span class="glyphicon" ng-class="{'glyphicon-ok':todos.length === 0, 'glyphicon-remove': todos.length > 0}"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
 
     </div>
     
