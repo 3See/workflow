@@ -21,6 +21,12 @@ myApp.controller('MainCtrl', function ($scope){
   }
     
   
+  $scope.editItem = function(item, uInput){
+    console.log("in edit");
+    var index = $scope.todos.indexOf(item);
+    $scope.todos[index] = uInput;
+  }
+
 });
 
 /*************************
