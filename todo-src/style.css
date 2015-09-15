@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Styles go here */ 
 body { 
   background: green; 
@@ -13,4 +14,9 @@ body {
 
 .low {
 	color: black;
+=======
+/* Styles go here */
+body {
+  background: green;
+>>>>>>> 7fc5c28ad48f11fd5d8dac53c6310f44586b5fba
 }
