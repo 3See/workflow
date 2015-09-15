@@ -26,6 +26,29 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("delete"); 
     $scope.todos.splice(index, 1); 
   }
+
+  $scope.editItem = function(item, uInput, priority){
+    console.log("in edit");
+    var index = $scope.todos.indexOf(item);
+    if (uInput) {
+      $scope.todos[index].name = uInput;
+    }
+    else{
+      $scope.todos[index].name = $scope.todos[index].name;
+    }
+    $scope.uInput = "";
+    
+    $scope.todos[index].priority = priority;
+    //if (1){
+      //$scope.todos.splice(index, 1); 
+      //$scope.todos.push({name:uInput, priority:priority});}
+      $scope.todos.sort(function(a,b) {
+        if(a.priority > b.priority) {return 1;}
+        if(a.priority < b.priority) {return -1;}
+        return 0;
+      });
+
+  }
  
 }); 
  
