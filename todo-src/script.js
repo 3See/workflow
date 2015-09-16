@@ -9,16 +9,35 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.newItem = "";
   //used to safeguard against undefined
   var un_defined;
+<<<<<<< HEAD
     
   $scope.addItem = function(){ 
     console.log("add"); 
     if ($scope.newItem !== "" && $scope.priority !== un_defined){
       $scope.todos.push({name:$scope.newItem, priority:$scope.priority done:false});
+=======
+  
+$scope.addItem = function(){ 
+    console.log("add"); 
+    if ($scope.newItem !== "" && $scope.priority !== un_defined){
+      $scope.todos.push({name:$scope.newItem, priority:$scope.priority});}
+>>>>>>> 14ddde4318a7559da53e6a9eda29999b9a9fadda
       $scope.todos.sort(function(a,b) {
         if(a.priority > b.priority) {return 1;}
         if(a.priority < b.priority) {return -1;}
         return 0;
       });
+<<<<<<< HEAD
+=======
+      $scope.newItem = "";
+  } 
+
+
+  $scope.addItem = function(){
+    console.log("in add");
+    if ($scope.newItem !== ""){
+      $scope.todos.push($scope.newItem);
+>>>>>>> 14ddde4318a7559da53e6a9eda29999b9a9fadda
       $scope.newItem = "";
     }
   } 
@@ -39,6 +58,21 @@ myApp.controller('MainCtrl', function ($scope){
     }
     $scope.uInput = "";
     
+<<<<<<< HEAD
+=======
+
+$scope.editItem = function(item, uInput, priority){
+    console.log("in edit");
+    var index = $scope.todos.indexOf(item);
+    if (uInput) {
+      $scope.todos[index].name = uInput;
+    }
+    else{
+      $scope.todos[index].name = $scope.todos[index].name;
+    }
+    $scope.uInput = "";
+    
+>>>>>>> 14ddde4318a7559da53e6a9eda29999b9a9fadda
     $scope.todos[index].priority = priority;
     //if (1){
       //$scope.todos.splice(index, 1); 
@@ -50,6 +84,7 @@ myApp.controller('MainCtrl', function ($scope){
       });
 
   }
+<<<<<<< HEAD
 
   $scope.completeItem = function(index){
     console.log("completed item");
@@ -82,3 +117,20 @@ myApp.controller('MainCtrl', function ($scope){
   * - add reminder (setInterval) 
   *  
   * *********************/ 
+=======
+
+  
+});
+
+/*************************
+ * Homework (not rly):
+ * - "enter" button functionality instead of clicking button
+ * - edit button functionality
+ * - button to mark item as "complete"
+ * - have a total number of items at the top
+ * - make it prettier
+ * - add a due date
+ * - add reminder (setInterval)
+ * 
+ * *********************/
+>>>>>>> 14ddde4318a7559da53e6a9eda29999b9a9fadda
