@@ -2,6 +2,7 @@
 <html>
 
   <head>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" data-semver="2.1.4" data-require="jquery@*"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -11,18 +12,42 @@
 
   <body ng-app="app">
     <h1 class="text-center">My little to do app!</h1>
-    
+    <!--changed to form to allow for submission via hitting enter-->
+
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+    <form>
+        <!--Couldnt get the input form to flush up nicely..looks fragmented like this but works--> 
+        <div class="col-xs-2">
+          <!--Selector for priority-->
+          <select ng-model="priority" class="form-control">
+            <option value="" disabled selected>Priority</option> 
+            <option value="High">High</option>
+            <option value="Med">Medium</option>
+            <!--Wanted to make this default but selected wasnt working also, l in low is lower case for a reason. See style.css-->
+            <option value="low">Low</option>
+          </select> 
+        </div>
+
+         <div class="col-xs-9"> 
+          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem" autocomplete="off">
+        </div>
+
+         <div class="col-xs-1">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="addItem()">
-              Add
-              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </button>
-          </span>
-        </div><!-- /input-group -->
+          <!--changed to submit type to allow for submission via hitting enter--> 
+          <!--I think a blue button would look good for the select--> 
+            <button type="submit" class="btn btn-info" ng-click="addItem()" id="submission">   
+              <span>Submit</span>                  
+            </button>     
+          </span> 
+        </div>
+      </form>
+
+            <!--for whatever reason, setting up the above caused the spacing here to disappear on the site so I added to break lines-->
+      <br/>
+      <br/>
+
         
       <h2>stuff i gotta do asap</h2>
       
@@ -30,10 +55,41 @@
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <span>{{do}}</span>
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
-            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-          </button>
+          <span> {{do.name}} </span>
+          <!-- This division is a text box that shows up only when the edit button has been pressed and disappears when 'ok' is hit. This is where the js function is called from.-->
+          <form ng-show="activity.isEdited">
+            <input type="text" ng-model="uInput" placeholder= {{do.name}} />
+            
+            <div class="col-xs-2">
+              <!--Selector for priority-->
+              <select ng-model="priority" class="form-control">
+                <option value="" disabled selected>Priority</option> 
+                <option value="High">High</option>
+                <option value="Med">Medium</option>
+                <!--Wanted to make this default but selected wasnt working also, l in low is lower case for a reason. See style.css-->
+                <option value="low">Low</option>
+              </select> 
+            </div>
+
+
+
+              <!--<form ng-submit = "activity.isEdited = false ; editItem(do, uInput, priority)">
+              -->
+            
+            <button type="submit" class="btn btn-info" ng-click="activity.isEdited = false ; editItem(do, uInput, priority)"id="submission">
+              <span>Ok</span>
+            </button>
+          </form>
+           
+          <div ng-hide="activity.isEdited"> 
+            <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem($index)"> 
+              <span class="glyphicon glyphicon-trash " aria-hidden="true"></span> 
+            </button> 
+            <button class="btn btn-danger pull-right" ng-click="activity.isEdited = true" type="button">
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </button>
+            
+          </div>
 
         </li>
       </ul>
